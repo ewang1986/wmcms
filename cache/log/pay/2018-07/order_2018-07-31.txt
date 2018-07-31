@@ -1,0 +1,3 @@
+[2018-07-31 09:12:07][debug] <xml><appid>123</appid><attach><![CDATA[%7B%22pay_type%22%3A%22wxpay%22%7D]]></attach><body><![CDATA[在线充值10元]]></body><mch_id>0</mch_id><nonce_str><![CDATA[su2y8nul2ie38uf49ugodwq9vgkz8wf2]]></nonce_str><notify_url><![CDATA[https://wmcms.com/wmcms/notify/pay.php]]></notify_url><out_trade_no>2018073109120774010002</out_trade_no><product_id>2018073109120774010002</product_id><spbill_create_ip><![CDATA[127.0.0.1]]></spbill_create_ip><total_fee>1000</total_fee><trade_type><![CDATA[NATIVE]]></trade_type><sign><![CDATA[0EBB5A6F408BA47E7482258C1F7682FB]]></sign></xml>
+
+
