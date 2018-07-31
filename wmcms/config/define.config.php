@@ -49,11 +49,11 @@ define('WMHELP','http://help.'.WMDOMAIN);
 //程序服务地址
 define('WMSERVER','http://server.'.WMDOMAIN);
 //开启运行日志文件记录
-define('RUNLOG',true);
+define('RUNLOG',false);
 //开启debug模式
 define('DEBUG',false);
 //开发者模式
-define('DEVELOPER',true);
+define('DEVELOPER',falseg);
 //错误级别，TRUE为全部报错停止，FALSE为警告提示
 define('ERR',false);
 //循环标签的前缀
