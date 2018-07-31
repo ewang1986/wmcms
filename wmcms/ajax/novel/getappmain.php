@@ -3,6 +3,8 @@
  *
  * 获取小程序首页内容
  *
+ * TODO 请求地址 http://www.wm.com/wmcms/ajax/index.php?action=novel.getappmain&cid=1
+ *
  * Created by PhpStorm.
  * User: Administrator
  * Date: 2018/7/31 0031
@@ -24,7 +26,7 @@ $applyMod = NewModel('system.apply');
 
 //TODO API的业务逻辑参考PC端
 
-if( $cid > 0 )
+/*if( $cid > 0 )
 {
     $code = 200;
     $data = $chapterMod->GetById( str::Int($cid) );
@@ -57,7 +59,7 @@ if( $cid > 0 )
     $info = $lang['system']['operate']['success'];
 } else {
     $info = $lang['system']['par']['err'];
-}
+}*/
 
 ReturnData($info , $ajax , $code , $data);
 
