@@ -26,19 +26,13 @@ class str{
 			if( $val >= 0 )
 			{
 				return $val;
-			}
-			else if( $str == '' )
-			{
+			} else if( $str == '' ) {
 				return intval($number);
-			}
-			else
-			{
+			} else {
 				//调用提示
 				tpl::errinfo($str);
 			}
-		}
-		else
-		{
+		} else {
 			return $number;
 		}
 	}
@@ -59,9 +53,7 @@ class str{
 		if( $str == '' )
 		{
 			return $val;
-		}
-		else
-		{
+		} else {
 			tpl::errinfo($str);
 		}
 	}

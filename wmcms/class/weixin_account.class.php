@@ -31,8 +31,7 @@ class WeiXin_Account extends WeiXin{
 			$scope = 'snsapi_base';
 		}
 		//用户手动授权
-		else
-		{
+		else {
 			$scope = 'snsapi_userinfo';
 		}
 
@@ -43,9 +42,7 @@ class WeiXin_Account extends WeiXin{
 			$url = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='.$this->appid.'&redirect_uri='.urlencode(GetUrl(true)).'&response_type=code&scope='.$scope.'&state=STATE#wechat_redirect';
 			Header("Location: $url");
 			exit();
-		}
-		else
-		{
+		} else {
 			//创建获得openid的url
 			$url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.$this->appid.'&secret='.$this->secret.'&code='.$_GET['code'].'&grant_type=authorization_code';
 			$data = $this->__GetUrl($url);

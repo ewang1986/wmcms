@@ -1,6 +1,7 @@
 <?php
 /**
 * wmcms模版类
+ *
 * 初始化参数说明：tpl(参数1，参数2)
 * @param 参数1，选填，默认为空，模版的样式文件夹。
 * @param 参数2，选填，默认为空，模版的名字。
@@ -549,6 +550,7 @@ class tpl{
 
 	/**
 	 * 输出模版内容
+     *
 	 * @param 参数1，选填，默认自动判断,否则根据传入的值输出头部
 	 */
 	function Display( $mark = '')
@@ -565,15 +567,11 @@ class tpl{
 					header("Content-type: text/xml");
 					break;
 			}
-		}
-		else
-		{
+		} else {
 			if( $this->mark == 'wap' )
 			{
 				header('Content-Type:text/vnd.wap.wml;charset=utf-8');  
-			}
-			else
-			{
+			} else {
 				header('Content-Type:text/html;charset=utf-8');  
 			}
 		}
@@ -582,9 +580,7 @@ class tpl{
 		if( self::$ptRepOpen == '1' )
 		{
 			$this->rep(array('pt'=>C('ua.pt')));
-		}
-		else
-		{
+		} else {
 			$this->rep(array('pt={pt}&'=>'','?pt={pt}'=>'','&pt={pt}'=>'','{pt}'=>''),'',2);
 		}
 		if( isset(self::$aaa) )
@@ -600,7 +596,6 @@ class tpl{
 			$tempCode = self::$tempContent;
 			//区分debug信息
 			$tempCode = '-----------------以上为DEBUG信息-----------------<br/><br/>'.$tempCode;
-
 			//记录完成时间，输出php执行时间
 			$endTime = microtime(true);
 			$tempCode.= '耗时'.round( $endTime - C('startTime') , 3).'秒';
@@ -1048,6 +1043,7 @@ file::CreateFile(WMCACHE.'log/run/'.date('Y-m').'/'.date('d').'.txt', $logs);
 
 	/**
 	* 错误提示信息
+     *
 	* @param 参数1，字符串，提示语句
 	* @param 参数2，字符串，跳转的url
 	* @param 参数3，数字，自动跳转的时间
@@ -1059,14 +1055,11 @@ file::CreateFile(WMCACHE.'log/run/'.date('Y-m').'/'.date('d').'.txt', $logs);
 		{
 			ReturnData( $info );
 			exit();
-		}
-		else if(C('page.pagetype')=='err')
+		} else if(C('page.pagetype')=='err')
 		{
 			die($info);
 			return;
-		}
-		else
-		{
+		} else {
 			if ( trim($path) != '')
 			{
 				C('ua.path' , $path);
@@ -1126,6 +1119,7 @@ file::CreateFile(WMCACHE.'log/run/'.date('Y-m').'/'.date('d').'.txt', $logs);
 
 	/**
 	* 获得指定页面的seo信息
+     *
 	* @param 参数1，$pagetype 页面的名字
 	* @param 参数2，$data 自定义seo的数据
 	* @param 参数3，$tempid 自定义模版的id
@@ -1145,9 +1139,7 @@ file::CreateFile(WMCACHE.'log/run/'.date('Y-m').'/'.date('d').'.txt', $logs);
 			$pageSeo['title'] = $data['title'];
 			$pageSeo['key'] = $data['key'];
 			$pageSeo['desc'] = $data['desc'];
-		}
-		else
-		{
+		} else {
 			$keyArr = C('config.seo.keys');
 			$pageSeo['title'] = @$keyArr[$pagetype]['title'];
 			$pageSeo['key'] = @$keyArr[$pagetype]['key'];
@@ -1167,13 +1159,10 @@ file::CreateFile(WMCACHE.'log/run/'.date('Y-m').'/'.date('d').'.txt', $logs);
 			//表示使用自定义的模版路径
 			C('page.tempid' , 'reset');
 			$tpath = C('ua.site_path').$dtemp;
-		}
-		else if( trim($tempid) == '' || $tempid == '0' || $tempid == 'reset')
+		} else if( trim($tempid) == '' || $tempid == '0' || $tempid == 'reset')
 		{
 			$tpath = $dtemp;
-		}
-		else
-		{
+		} else {
 			$where['table'] = '`@system_templates`';
 			$where['where']['temp_id'] = $tempid;
 			$row = wmsql::GetOne($where);
@@ -1181,9 +1170,7 @@ file::CreateFile(WMCACHE.'log/run/'.date('Y-m').'/'.date('d').'.txt', $logs);
 			if( empty($row) )
 			{
 				$tpath = $dtemp;
-			}
-			else
-			{
+			} else {
 				//如果使用的不是是当前的模版
 				if( $row['temp_address'] != '0' )
 				{
@@ -1235,15 +1222,11 @@ file::CreateFile(WMCACHE.'log/run/'.date('Y-m').'/'.date('d').'.txt', $logs);
 			if( array_key_exists('where',$str) )
 			{
 				return $str;
-			}
-			else
-			{
+			} else {
 				$where['where'] = $str;
 				return $where;
 			}
-		}
-		else
-		{
+		} else {
 			//设置默认变量
 			$page = $pageCount = $limitSql = $orderSql = $groupSql = '';
 			$oldOrderSql = '';

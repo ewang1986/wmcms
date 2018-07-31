@@ -218,6 +218,7 @@ function NewModuleClass($module, $data = '' , $isSys = false)
 }
 /**
  * 载入模型/wmcms/models
+ *
  * @param 参数1，必须，模型的地址
  * @param 参数2，选填，默认的数据
  */
@@ -381,15 +382,13 @@ function C( $key , $val = '' , $default = ''){
 		$value = $default;
 	}
 	//如果默认为字符串则读取相应的数组
-	else if ( trim( $default ) != '')
-	{
+	else if ( trim( $default ) != '') {
 		global $$default;
 		$value = $$default;
 		$config = &$$default;
 	}
 	//否则就设置
-	else
-	{
+	else {
 		$value = $C;
 		$config = &$C;
 	}
@@ -397,9 +396,7 @@ function C( $key , $val = '' , $default = ''){
 	if( $key == '' && $default != '' )
 	{
 		return $value;
-	}
-	else
-	{
+	} else {
 		//分割键
 		$nodes = explode('.', $key);
 	
@@ -411,9 +408,7 @@ function C( $key , $val = '' , $default = ''){
 				if ( isset($value[$node]) )
 				{
 					$value = $value[$node];
-				}
-				else
-				{
+				} else {
 					$value = null;
 					break;
 				}
@@ -428,9 +423,7 @@ function C( $key , $val = '' , $default = ''){
 				if( class_exists('str') && !is_int($value))
 				{
 					return str::Escape($value);
-				}
-				else
-				{
+				} else {
 					return $value;
 				}
 			}
@@ -679,24 +672,18 @@ function Get( $key = '' , $default = ''  , $isFilter = true)
 				}
 			}
 		}
-	}
-	else
-	{
+	} else {
 		if(	trim( $key ) != '' )
 		{
 			if( !isset( $_GET[$key] ) && $default != '')
 			{
 				$value = $default;
-			}
-			else if( isset( $_GET[$key] ) )
-			{
+			} else if( isset( $_GET[$key] ) ) {
 				//是否过滤
 				if( $isFilter )
 				{
 					$value = InputFilter(stripslashes($_GET[$key]));
-				}
-				else
-				{
+				} else {
 					$value = stripslashes($_GET[$key]);
 				}
 				if( $value == '' && $default != '' )
@@ -762,6 +749,7 @@ function Request( $key = '' , $val = '')
 	}
 	return $value;
 }
+
 /**
  * post，get，session,cookie数据过滤
  */
@@ -1126,6 +1114,7 @@ function ReturnXml( $msg = '' , $code = 200 , $data = '' )
 }
 /**
  * 通用返回，自动识别成功失败。
+ *
  * @param 参数1，必须，返回消息
  * @param 参数2，选填，默认200成功有数据状态，300成功但是没有数据,500失败。
  * @param 参数3，选填，sql语句是否执行成功。
@@ -1174,16 +1163,13 @@ function ReturnData( $msg = '操作成功！' , $ajax = '' , $code = 500 , $data
 		if( $type == 'json' )
 		{
 			$returnJson = urldecode(json_encode( $res ));
-		}
-		else if( $type == 'jsonp' )
+		} else if( $type == 'jsonp' )
 		{
 			$callback = Request('callback');
 			if( $callback != '' )
 			{
 				$returnJson = $callback.'('.urldecode(json_encode( $res )).')';
-			}
-			else
-			{
+			} else {
 				$returnJson = urldecode(json_encode( $res ));
 			}
 		}

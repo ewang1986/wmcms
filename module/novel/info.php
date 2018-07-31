@@ -20,7 +20,6 @@ if( $novelConfig['par_info'] == '1' )
 }
 $nid = str::IsEmpty( Get('nid') , $lang['novel']['par']['nid_no'] );
 
-
 //参数验证
 $readWhere = $where = novel::GetPar( 'content' , $nid);
 //是否检查页面的参数

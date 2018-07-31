@@ -201,9 +201,7 @@ if( !empty( $moduleClass ) )
 			if ( ERR )
 			{
 				exit( $lang['system']['file']['no'] . '<br/>文件路径:'.$langPath );
-			}
-			else
-			{
+			} else {
 				echo '警告：'.$langPath.'不存在<br/><br/>';
 			}
 		}
@@ -234,9 +232,7 @@ if( isset($befotFun) )
 					$key::$v();
 				}
 			}
-		}
-		else
-		{
+		} else {
 			$key::$val();
 		}
 	}

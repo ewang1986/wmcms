@@ -41,14 +41,12 @@ if( count($aArr) > 1 )
 		require_once $file.'.php';
 	}
 	//方法文件不存在
-	else
-	{
+	else {
 		tpl::ErrInfo($lang['system']['action']['no_file']);
 	}
 }
 //方法参数错误
-else
-{
+else {
 	tpl::ErrInfo($lang['system']['action']['no_action']);
 }
 ?>
