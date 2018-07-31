@@ -53,7 +53,7 @@ define('RUNLOG',false);
 //开启debug模式
 define('DEBUG',false);
 //开发者模式
-define('DEVELOPER',falseg);
+define('DEVELOPER',false);
 //错误级别，TRUE为全部报错停止，FALSE为警告提示
 define('ERR',false);
 //循环标签的前缀

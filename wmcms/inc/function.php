@@ -41,9 +41,7 @@ function IsAjax()
 	if(@isset($_SERVER['HTTP_X_REQUESTED_WITH']) && @strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
 	{
 		return true;
-	}
-	else
-	{
+	} else {
 		return false;
 	}
 }
@@ -80,17 +78,13 @@ function GetHttpType($type='')
 	if( (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') )
 	{
 		$httpType = 'https';
-	}
-	else if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')
+	} else if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')
 	{
 		$httpType = 'https';
-	}
-	else if ( !empty($_SERVER['HTTP_FRONT_END_HTTPS']) && strtolower($_SERVER['HTTP_FRONT_END_HTTPS']) !== 'off')
+	} else if ( !empty($_SERVER['HTTP_FRONT_END_HTTPS']) && strtolower($_SERVER['HTTP_FRONT_END_HTTPS']) !== 'off')
 	{
 		$httpType = 'https';
-	}
-	else
-	{
+	} else {
 		$httpType = 'http';
 	}
 	
@@ -98,15 +92,11 @@ function GetHttpType($type='')
 	if( $type == '' )
 	{
 		return $httpType;
-	}
-	else
-	{
+	} else {
 		if( $httpType == $type )
 		{
 			return true;
-		}
-		else
-		{
+		} else {
 			return false;
 		}
 	}
@@ -118,9 +108,7 @@ function IsHttp()
 	if( GetHttpType('http') )
 	{
 		return true;
-	}
-	else
-	{
+	} else {
 		return false;
 	}
 }
@@ -156,20 +144,14 @@ function Inc( $path , $name = ''){
 			require $path;
 			$arr = $name.'Config';
 			return $$arr;
-		}
-		else
-		{
+		} else {
 			return require $path;
 		}
-	}
-	else if ( DEVELOPER )
-	{
+	} else if ( DEVELOPER ) {
 		if ( ERR )
 		{
 			exit( C('system.file.no', null , 'lang') . '<br/>文件路径:'.$path );
-		}
-		else
-		{
+		} else {
 			echo '警告：'.$path.'不存在<br/><br/>';
 		}
 	}
@@ -196,13 +178,10 @@ function NewClass( $name , $data = '' , $path = WMCLASS , $type = 'class' )
 		if( $type == 'model' )
 		{
 			$className = $name.'model';
-		}
-		else if( $type == 'label' )
+		} else if( $type == 'label' )
 		{
 			$className = $name.'label';
-		}
-		else
-		{
+		} else {
 			$className = $name;
 		}
 		if( !class_exists($className) )
@@ -212,15 +191,11 @@ function NewClass( $name , $data = '' , $path = WMCLASS , $type = 'class' )
 		$ob = new $className( $data );
 		
 		return $ob;
-	}
-	else if ( DEVELOPER )
-	{
+	} else if ( DEVELOPER ) {
 		if ( ERR )
 		{
 			exit( C('system.file.no', null , 'lang') . '<br/>文件路径:'.$file );
-		}
-		else
-		{
+		} else {
 			echo '警告：类文件'.$file.'不存在<br/><br/>';
 		}
 	}
@@ -235,9 +210,7 @@ function NewModuleClass($module, $data = '' , $isSys = false)
 	if( $isSys == false )
 	{
 		$path = WMMODULE.$module;
-	}
-	else
-	{
+	} else {
 		$path = WMSYSMODULE.$module;
 	}
 	
@@ -292,13 +265,12 @@ function GetModuleConfig($module , $isSys = false)
 	if( $isSys == false )
 	{
 		$path = WMMODULE.$module.'/'.$module.'.config.php';
-	}
-	else
-	{
+	} else {
 		$path = WMSYSMODULE.$module.'/'.$module.'.config.php';
 	}
 	return Inc( $path , $module);
 }
+
 function GetModuleLang($module)
 {
 	return Inc( WMMODULE.$module.'/lang/'.C('config.web.lang').'/system.php');
