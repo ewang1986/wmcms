@@ -25,9 +25,7 @@ if( $cid > 0 )
 	if( !$data )
 	{
 		$code = 201;
-	}
-	else
-	{
+	} else {
 		$novelLang = GetModuleLang('novel');
 		$data['chapter_type'] = $novelLang['novel']['par']['chapter_type_'.$data['chapter_ispay']];
 
@@ -51,9 +49,7 @@ if( $cid > 0 )
 		}
 	}
 	$info = $lang['system']['operate']['success'];
-}
-else
-{
+} else {
 	$info = $lang['system']['par']['err'];
 }
 

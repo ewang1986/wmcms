@@ -115,9 +115,7 @@ class tpl{
 			if( !file_exists( $this->tempFile ) )
 			{
 				self::ErrInfo('<b style="color:red;">对不起,模版文件"'.$this->tempFile.'"不存在！</b>',null,null,'system','templates.html');
-			}
-			else
-			{
+			} else {
 				$temp = file_get_contents( $this->tempFile );
 				//写入打开后的模版文件
 				self::$tempCode = $temp;
@@ -201,14 +199,10 @@ class tpl{
 				if( !$default )
 				{
 					return $str;
-				}
-				else
-				{
+				} else {
 					return self::$tempCode = $str;
 				}
-			}
-			else
-			{
+			} else {
 				return false;
 			}
 		}

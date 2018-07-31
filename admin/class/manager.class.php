@@ -69,6 +69,7 @@ class manager{
 	{
 		$wheresql['table'] = '@config_config';
 		$wheresql['where']['config_module'] = $module;
+		$wheresql['where']['config_status'] = 1;//by wyz 实现隐藏配置项功能 config_id = 7|8
 		$wheresql['order'] = 'config_order';
 		$configArr = wmsql::GetAll($wheresql);
 		return $configArr;

@@ -86,9 +86,7 @@ if(!DEBUG)
 	//禁用错误报告
 	error_reporting(0);
 	error_reporting(E_ALL^E_NOTICE^E_WARNING);
-}
-else
-{
+} else {
 	//报告所有错误
 	error_reporting(1);
 	ini_set('display_errors','on');
@@ -179,13 +177,10 @@ if( !empty( $moduleClass ) )
 		//载入模块配置文件
 		$config = $k.'Config';
 		$$config = Inc( WMMODULE . $k . '/' . $k . '.config.php' , $k );
-		
 		//载入模块类文件
 		Inc( WMMODULE . $k . '/' . $k . '.class.php' );
-		
 		//载入模块标签文件
 		Inc( WMMODULE . $k . '/' . $k . '.label.php' );
-		
 		//载入语言包文件
 		$langPath = WMMODULE . $k . '/lang/' . $C['config']['web']['lang'] . '/system.php';
 		if( file_exists($langPath) )
@@ -195,9 +190,7 @@ if( !empty( $moduleClass ) )
 				echo '载入文件：'.$langPath.'<br/>';
 			}
 			require_once $langPath;
-		}
-		else if ( DEVELOPER )
-		{
+		} else if ( DEVELOPER ) {
 			if ( ERR )
 			{
 				exit( $lang['system']['file']['no'] . '<br/>文件路径:'.$langPath );

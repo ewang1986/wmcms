@@ -34,9 +34,7 @@ if( str::Number($tid) )
 		$code = 201;
 	}
 	$info = $lang['system']['operate']['success'];
-}
-else
-{
+} else {
 	$info = $lang['article']['tid_err'];
 }
 //根

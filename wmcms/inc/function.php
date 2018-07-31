@@ -429,17 +429,14 @@ function C( $key , $val = '' , $default = ''){
 			}
 		}
 		//如果有值就写入数组
-		else
-		{
+		else {
 			//循环赋值
 			foreach ( $nodes as $node )
 			{
 				if ( isset($config[$node]) )
 				{
 					$config = & $config[$node];
-				}
-				else
-				{
+				} else {
 					$config[$node] = array();
 					$config = & $config[$node];
 				}
