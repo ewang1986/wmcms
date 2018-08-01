@@ -24,9 +24,7 @@ if( str::Number($tid) )
 	if( $child == 0 )
 	{
 		$data = $typeMod->GetById( $tid );
-	}
-	else
-	{
+	} else {
 		$data = $typeMod->GetByTopId( $tid );
 	}
 	if( !$data )
@@ -34,9 +32,7 @@ if( str::Number($tid) )
 		$code = 201;
 	}
 	$info = $lang['system']['operate']['success'];
-}
-else
-{
+} else {
 	$info = $lang['novel']['tid_err'];
 }
 //根

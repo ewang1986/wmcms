@@ -70,6 +70,14 @@ class novel
 				$wheresql['left'][self::$typeTable.' as t'] = 't.type_id=n.type_id';
 				$wheresql = GetFieldWhere('novel' , $wheresql , 2);
 				break;
+            case 'new':
+                $wheresql['field'] = 'n.*,r.rec_rt,rec_img3,rec_img4,type_name,type_cname,type_pinyin,type_info';
+                $wheresql['table'] = '@novel_rec as r';
+                $wheresql['left'][self::$novelTable.' as n'] = 'rec_nid=novel_id';
+                $wheresql['left'][self::$typeTable.' as t'] = 't.type_id=n.type_id';
+                $wheresql['order'] = 'novel_createtime desc';
+                $wheresql = GetFieldWhere('novel' , $wheresql );
+                break;
 
 			//最新章节
 			case 'chapter':

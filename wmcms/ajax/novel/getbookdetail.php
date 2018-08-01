@@ -16,7 +16,7 @@
 require_once __DIR__.'/../../../module/novel/novel.class.php';
 
 // TODO 获取get/post参数
-$cid = Request('cid');
+$novel_id = Request('id');
 $istxt = Request('istxt' , 0);
 
 //TODO 设置响应码 初始化响应数据
@@ -29,15 +29,9 @@ $authorMod = NewModel('author.author');
 $applyMod = NewModel('system.apply');
 
 //TODO API的业务逻辑参考PC端
-
-$rec_data = novel::GetData('rec');
-$new_data = novel::GetData('new');
-$data[0]['name'] = "火热推荐";
-$data[0]['layout'] = 3;
-$data[0]['books'] = array_slice($rec_data,0,3);
-$data[1]['name'] = "潜力新作";
-$data[1]['layout'] = 2;
-$data[1]['books'] = $new_data;
+$where['novel_id'] = $novel_id;
+$data = str::GetOne(novel::GetData( 'content' , $where));
+$data['novel_name'] = str::DelHtml($data['novel_name']);
 
 
 /*if( $cid > 0 )
